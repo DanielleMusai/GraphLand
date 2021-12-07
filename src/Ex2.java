@@ -1,12 +1,16 @@
 import api.DirectedWeightedGraph;
 import api.DirectedWeightedGraphAlgorithms;
+import api.EdgeData;
+import api.NodeData;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.w3c.dom.Node;
 
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
 
 /**
  * This class is the main class for Ex2 - your implementation will be tested using this class.
@@ -27,26 +31,23 @@ public class Ex2 {
 
             Reader reader = Files.newBufferedReader(Paths.get(json_file));
             ans = gson.fromJson(reader, MyGraph.class);
-
             System.out.println(ans);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return ans  ;
+        return ans;
     }
-
     /**
      * This static function will be used to test your implementation
      *
      * @param json_file - a json file (e.g., G1.json - G3.gson)
-     * @return
+     * @returnc
      */
     public static DirectedWeightedGraphAlgorithms getGrapgAlgo(String json_file) {
-        DirectedWeightedGraphAlgorithms ans = null;
-        // ****** Add your code here ******
-        //
-        // ********************************
+        DirectedWeightedGraphAlgorithms ans = new MyAlgorithm();
         return ans;
+
+
     }
 
     /**
@@ -60,9 +61,9 @@ public class Ex2 {
         //
         // ********************************
     }
-
     public static void main(String[] args) {
-        getGrapg("data\\G2.json");
+      //  getGrapg("data\\G1.json");
 
+       getGrapgAlgo("data\\G1.json");
     }
 }
